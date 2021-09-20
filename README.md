@@ -26,11 +26,11 @@ dependencies {
 Gradle (Kotlin DSL)
 ```kts
 repositories {
-    maven('https://jitpack.io')
+    maven("https://jitpack.io")
 }
 
 dependencies {
-    implementation('com.github.AtSignRANK:Candle-API:Version')
+    implementation("com.github.AtSignRANK:Candle-API:Version")
 }
 ```
 
