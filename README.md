@@ -4,7 +4,7 @@
 [![Gradle](https://img.shields.io/badge/gradle-7.0-02303A.svg?logo=gradle)](https://gradle.org)
 
 Maven
-```maven
+```xml
 <dependency>
     <groupId>com.github.AtSignRANK</groupId>
     <artifactId>Candle-API</artifactId>
