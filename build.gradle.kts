@@ -22,13 +22,25 @@ dependencies {
 }
 
 tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "16" // JDK 버전
+    javadoc {
+        options.encoding = "UTF-8"
     }
 
-    shadowJar {
-        archiveBaseName.set(project.name)
-        archiveClassifier.set("")
-        archiveVersion.set("")
+    compileKotlin {
+        kotlinOptions.jvmTarget = "16"
+    }
+
+    create<Jar>("sourceJar") {
+        archiveClassifier.set("source")
+        from(sourceSets["main"].allSource)
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>(rootProject.name) {
+            from(components["java"])
+            artifact(tasks["sourceJar"])
+        }
     }
 }
