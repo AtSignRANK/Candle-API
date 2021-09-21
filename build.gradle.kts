@@ -25,9 +25,22 @@ val shade = configurations.create("shade")
 shade.extendsFrom(configurations.implementation.get())
 
 tasks {
-  jar {
+    javadoc {
+        options.encoding = "UTF-8"
+    }
+    
+    compileKotlin {
+        kotlinOptions.jvmTarget = "16"
+    }
+
+    create<Jar>("sourceJar") {
+        archiveClassifier.set("source")
+        from(sourceSets["main"].allSource)
+    }
+    
+    jar {
     from (shade.map { if (it.isDirectory) it else zipTree(it) })
-  }
+    }
 }
 
 publishing {
