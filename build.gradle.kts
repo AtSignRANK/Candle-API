@@ -29,3 +29,12 @@ tasks {
     from (shade.map { if (it.isDirectory) it else zipTree(it) })
   }
 }
+
+publishing {
+    publications {
+        create<MavenPublication>(rootProject.name) {
+            from(components["java"])
+            artifact(tasks["sourceJar"])
+        }
+    }
+} 
