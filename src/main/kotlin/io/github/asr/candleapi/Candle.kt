@@ -1,5 +1,7 @@
 package io.github.asr.candleapi
 
+import org.bukkit.Material
+
 fun Material.isCandle(): Boolean = Candle.valuesList().contains(this.toCandle())
 
 fun Material.toCandle(): Candle? {
